@@ -1,0 +1,21 @@
+{
+    "name": "hexlet/code",
+    "autoload": {
+        "psr-4": {
+            "Bulatgalimyanov\\PhpProject48\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Yanov Bulat",
+            "email": "yanovwork@gmail.com"
+        }
+    ],
+    "require": {
+        "docopt/docopt": "^1.0",
+        "wp-cli/php-cli-tools": "^0.11.16"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "*"
+    }
+}

@@ -16,13 +16,15 @@ Generate diff
 Usage:
   gendiff (-h|--help)
   gendiff (-v|--version)
+  gendiff [--format <fmt>] 
 
 Options:
-  -h --help                     Show this screen
-  -v --version                  Show version
+  -h --help                     
+  -v --version                  
+  --format <fmt>                
 
 DOC;
 
-$args = Docopt::handle($doc, array('version'=>'Naval Fate 2.0'));
+$args = Docopt::handle($doc, array('version'=>'Generate diff 1.0', '--format <fmt>'=>'<firstFile> <secondFile>'));
 foreach ($args as $k=>$v)
     echo $k.': '.json_encode($v).PHP_EOL;
