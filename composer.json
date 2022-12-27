@@ -1,9 +1,9 @@
 {
     "name": "hexlet/code",
     "autoload": {
-        "psr-4": {
-            "Bulatgalimyanov\\PhpProject48\\": "src/"
-        }
+        "files": [
+            "src/Differ.php"
+        ]
     },
     "authors": [
         {
@@ -13,9 +13,10 @@
     ],
     "require": {
         "docopt/docopt": "^1.0",
-        "wp-cli/php-cli-tools": "^0.11.16"
+        "lstrojny/functional-php": "^1.17"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "phpunit/phpunit": "^9.5"
     }
 }
