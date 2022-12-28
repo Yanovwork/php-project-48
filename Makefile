@@ -6,3 +6,5 @@ autoload:
 	composer dump-autoload
 install:
 	composer install
+test-coverage:
+	composer exec --verbose phpunit tests -- --coverage-clover build/logs/clover.xml
