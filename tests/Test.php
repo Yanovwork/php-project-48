@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 use function src\Differ\genDiff;
 
-class DiffTest extends TestCase
+class Test extends TestCase
 {
     private $pathJson1;
     private $pathJson2;
