@@ -13,13 +13,13 @@ class DiffTest extends TestCase
 
     public function setUp(): void
     {
-        $this->pathJson1 = 'tests/files/file1.json';
-        $this->pathJson2 = 'tests/files/file2.json';
+        $this->pathJson1 = 'tests/fixtures/file1.json';
+        $this->pathJson2 = 'tests/fixtures/file2.json';
     }
 
     public function testGenDiff(): void
     {
-        $path = 'tests/files/result.txt';
+        $path = 'tests/fixtures/result.txt';
         $expected = file_get_contents($path);
         $resultJson = genDiff($this->pathJson1, $this->pathJson2);
         $this->assertTrue($expected == $resultJson);
