@@ -1,1 +1,1 @@
-{"version":1,"defects":[],"times":{"tests\\Test\\Test::testGenDiff":0.003}}
+{"version":1,"defects":{"tests\\Test\\Test::testGenDiff":4,"tests\\Test\\Test::testGenDiffYaml":4},"times":{"tests\\Test\\Test::testGenDiff":0.002,"tests\\Test\\Test::testGenDifJson":0.003,"tests\\Test\\Test::testGenDiffYaml":0.003}}

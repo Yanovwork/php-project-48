@@ -3,11 +3,7 @@
 namespace src\Differ;
 
 use function Functional\sort;
-
-function parseFile(string $filePath): array
-{
-    return json_decode(file_get_contents($filePath), true);
-}
+use function src\Parsers\parseFile;
 
 function convertBooleanToString(array $arr): array
 {
