@@ -24,7 +24,7 @@ class Test extends TestCase
 
     public function testGenDifJsonStylish(): void
     {
-        $path = 'tests/fixtures/result.txt';
+        $path = 'tests/fixtures/resultStylish.txt';
         $expected = file_get_contents($path);
         $result = genDiff($this->pathJson1, $this->pathJson2);
         $this->assertTrue($expected == $result);
@@ -32,9 +32,25 @@ class Test extends TestCase
 
     public function testGenDiffYamlStylish(): void
     {
-        $path = 'tests/fixtures/result.txt';
+        $path = 'tests/fixtures/resultStylish.txt';
         $expected = file_get_contents($path);
         $result = genDiff($this->pathYaml1, $this->pathYaml2);
+        $this->assertTrue($expected == $result);
+    }
+
+    public function testGenDiffJsonPlain(): void
+    {
+        $path = 'tests/fixtures/resultPlain.txt';
+        $expected = file_get_contents($path);
+        $result = genDiff($this->pathJson1, $this->pathJson2, 'plain');
+        $this->assertTrue($expected == $result);
+    }
+
+    public function testGenDiffYamlPlain(): void
+    {
+        $path = 'tests/fixtures/resultPlain.txt';
+        $expected = file_get_contents($path);
+        $result = genDiff($this->pathYaml1, $this->pathYaml2, 'plain');
         $this->assertTrue($expected == $result);
     }
 }

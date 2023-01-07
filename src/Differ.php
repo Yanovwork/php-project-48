@@ -5,7 +5,7 @@ namespace src\Differ;
 use function src\Parsers\parseFile;
 use function src\Merger\makeDiff;
 use function src\Formatters\Stylish\makeStylish;
-use function src\Formatters\Stylish\formatDiff;
+use function src\Formatters\Plain\makePlain;
 
 function genDiff($firstPath, $secondPath, string $format = 'stylish'): string
 {
@@ -14,6 +14,8 @@ function genDiff($firstPath, $secondPath, string $format = 'stylish'): string
     $result = makeDiff($firstArray, $secondArray);
     switch ($format) {
         case 'stylish':
-            return formatDiff($result);
+            return makeStylish($result);
+        case 'plain':
+            return makePlain($result);
     }
 }

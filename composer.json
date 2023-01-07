@@ -5,7 +5,8 @@
             "src/Differ.php",
             "src/Parsers.php",
             "src/Merger.php",
-            "src/Formatters/Stylish.php"
+            "src/Formatters/Stylish.php",
+            "src/Formatters/Plain.php"
         ]
     },
     "authors": [

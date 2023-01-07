@@ -73,7 +73,7 @@ function makeFormat($currentValue, int $depth): string
     return wrapLines($lines, $indent);
 }
 
-function formatDiff(array $diff): string
+function makeStylish(array $diff): string
 {
     return makeFormat(getChildren($diff), 1);
 }
