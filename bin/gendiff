@@ -10,24 +10,4 @@ if (file_exists($autoloadPath1)) {
     require_once $autoloadPath2;
 }
 
-use function src\Differ\genDiff;
-
-$doc = <<<DOC
-gendiff -h
-Generate diff
-Usage:
-  gendiff (-h|--help)
-  gendiff (-v|--version)
-  gendiff [--format <fmt>] <firstFile> <secondFile>
-Options:
-  -h --help                     Show this screen
-  -v --version                  Show version
-  --format <fmt>                Report format [default: stylish]
-DOC;
-
-$args = Docopt::handle($doc, array('version'=>'Naval Fate 2.0'));
-$pathToFile1 = $args['<firstFile>'];
-$pathToFile2 = $args['<secondFile>'];
-$format = $args['--format'];
-
-echo(genDiff($pathToFile1, $pathToFile2, $format));
+echo src\Cli\run();
