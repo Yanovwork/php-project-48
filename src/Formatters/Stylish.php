@@ -15,20 +15,35 @@ function getIndent(int $depth): string
 
 function wrapLines(array $lines, string $indent): string
 {
-    return "{\n" . implode("\n", $lines) . "\n" . $indent . "}";
+    return " {\n" . implode("\n", $lines) . "\n" . $indent . "}";
 }
 
 function toString($item, int $depth): string
 {
+    if ($item === true) {
+        return ' true';
+    }
+    if ($item === false) {
+        return ' false';
+    }
+    if ($item === null) {
+        return ' null';
+    }
+    if ($item === 0) {
+        return ' 0';
+    }
+    if ($item === '') {
+        return '';
+    }
     if (!is_array($item)) {
-        return is_null($item) ? "null" : trim(var_export($item, true), "'");
+        return " $item";
     }
 
     $indent = getIndent($depth);
 
     $lines = array_map(function ($key, $value) use ($indent, $depth) {
         $stringValue = toString($value, $depth + 1);
-        return "{$indent}    {$key}: {$stringValue}";
+        return "{$indent}    {$key}:{$stringValue}";
     }, array_keys($item), $item);
 
     return wrapLines($lines, $indent);
@@ -44,29 +59,29 @@ function makeFormat($currentValue, int $depth): string
 
         if ($type === 'nested') {
             $children = makeFormat(getChildren($item), $depth + 1);
-            return [...$acc, "{$indent}    {$key}: {$children}"];
+            return [...$acc, "{$indent}    {$key}:{$children}"];
         }
 
         $value1 = toString(getValue1($item), $depth + 1);
         $value2 = toString(getValue2($item), $depth + 1);
 
         if ($type === 'added') {
-            return [...$acc, "{$indent}  + {$key}: {$value1}"];
+            return [...$acc, "{$indent}  + {$key}:{$value1}"];
         }
 
         if ($type === 'removed') {
-            return [...$acc, "{$indent}  - {$key}: {$value1}"];
+            return [...$acc, "{$indent}  - {$key}:{$value1}"];
         }
 
         if ($type === 'updated') {
             return [
                 ...$acc,
-                "{$indent}  - {$key}: {$value1}",
-                "{$indent}  + {$key}: {$value2}"
+                "{$indent}  - {$key}:{$value1}",
+                "{$indent}  + {$key}:{$value2}"
             ];
         }
 
-        return [...$acc, "{$indent}    {$key}: {$value1}"];
+        return [...$acc, "{$indent}    {$key}:{$value1}"];
     };
     $lines = array_reduce($currentValue, $callback, []);
 
