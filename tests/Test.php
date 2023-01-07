@@ -12,7 +12,6 @@ class Test extends TestCase
     private $pathJson2;
     private $pathYaml1;
     private $pathYaml2;
-    private $pathJsonResult;
 
     public function setUp(): void
     {

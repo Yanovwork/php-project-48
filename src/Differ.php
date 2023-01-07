@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Differ;
+namespace Differ\Differ;
 
 use function src\Parsers\parseFile;
 use function src\Merger\makeDiff;

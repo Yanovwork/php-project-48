@@ -4,7 +4,7 @@ namespace src\Cli;
 
 use Docopt;
 
-use function src\Differ\gendiff;
+use function Differ\Differ\gendiff;
 
 const DOC = <<<EOF
 Generate diff
