@@ -5,7 +5,6 @@ namespace tests\Test;
 use PHPUnit\Framework\TestCase;
 
 use function src\Differ\genDiff;
-use function src\Parsers\parseFile;
 
 class Test extends TestCase
 {
@@ -13,6 +12,7 @@ class Test extends TestCase
     private $pathJson2;
     private $pathYaml1;
     private $pathYaml2;
+    private $pathJsonResult;
 
     public function setUp(): void
     {
@@ -22,7 +22,7 @@ class Test extends TestCase
         $this->pathYaml2 = 'tests/fixtures/file2.yml';
     }
 
-    public function testGenDifJson(): void
+    public function testGenDifJsonStylish(): void
     {
         $path = 'tests/fixtures/result.txt';
         $expected = file_get_contents($path);
@@ -30,7 +30,7 @@ class Test extends TestCase
         $this->assertTrue($expected == $result);
     }
 
-    public function testGenDiffYaml(): void
+    public function testGenDiffYamlStylish(): void
     {
         $path = 'tests/fixtures/result.txt';
         $expected = file_get_contents($path);
