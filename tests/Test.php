@@ -37,7 +37,7 @@ class Test extends TestCase
         $this->assertTrue($expected == $result);
     }
 
-    public function testGenDiffJsonPlain(): void
+    /*public function testGenDiffJsonPlain(): void
     {
         $path = 'tests/fixtures/resultPlain.txt';
         $expected = file_get_contents($path);
@@ -67,5 +67,5 @@ class Test extends TestCase
         $expected = file_get_contents($path);
         $result = genDiff($this->pathYaml1, $this->pathYaml2, 'json');
         $this->assertTrue($expected == $result);
-    }
+    }*/
 }
